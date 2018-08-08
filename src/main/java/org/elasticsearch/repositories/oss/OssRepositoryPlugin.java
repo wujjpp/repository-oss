@@ -25,7 +25,7 @@ public class OssRepositoryPlugin extends Plugin implements RepositoryPlugin {
 				OssStorageSettings.ACCESS_KEY_ID, 
 				OssStorageSettings.SECRET_ACCESS_KEY,
 				OssStorageSettings.ENDPOINT, 
-				OssStorageSettings.BUCKET, 
+				OssStorageSettings.BUCKET,  
 				OssStorageSettings.SECURITY_TOKEN,
 				OssStorageSettings.BASE_PATH, 
 				OssStorageSettings.COMPRESS, 

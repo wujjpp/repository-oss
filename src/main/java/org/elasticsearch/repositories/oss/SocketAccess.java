@@ -1,5 +1,6 @@
 package org.elasticsearch.repositories.oss;
 
+import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSException;
 
 import org.elasticsearch.SpecialPermission;
@@ -32,7 +33,7 @@ public final class SocketAccess {
         }
     }
 
-    public static void doPrivilegedVoidException(StorageRunnable action) throws Exception {
+    public static void doPrivilegedVoidException(StorageRunnable action) throws OSSException, ClientException {
         SpecialPermission.check();
         try {
             AccessController.doPrivileged((PrivilegedExceptionAction<Void>) () -> {
@@ -44,7 +45,7 @@ public final class SocketAccess {
             if (cause instanceof OSSException) {
                 throw (OSSException) cause;
             } else {
-                throw (Exception) cause;
+                throw (ClientException) cause;
             }
         }
     }

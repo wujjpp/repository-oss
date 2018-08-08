@@ -122,7 +122,7 @@ public class OssStorageService extends AbstractComponent {
 		});
 	}
 
-	public void deleteObject(String bucketName, String key) throws Exception {
+	public void deleteObject(String bucketName, String key) throws OSSException, ClientException {
 		SocketAccess.doPrivilegedVoidException(() -> {
 			this.client.deleteObject(bucketName, key);
 		});
