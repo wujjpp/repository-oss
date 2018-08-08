@@ -19,12 +19,12 @@ import java.util.Map;
 
 public class OssBlobStore extends AbstractComponent implements BlobStore {
 
-	private final OssStorageService client;
+	private final OssStorageService ossStorageService;
 	private final String bucket;
 
-	public OssBlobStore(Settings settings, String bucket, OssStorageService client) {
+	public OssBlobStore(Settings settings, String bucket, OssStorageService ossStorageService) {
 		super(settings);
-		this.client = client;
+		this.ossStorageService = ossStorageService;
 		this.bucket = bucket;
 		if (!doesBucketExist(bucket)) {
 			throw new BlobStoreException("Bucket [" + bucket + "] does not exist");
@@ -53,7 +53,7 @@ public class OssBlobStore extends AbstractComponent implements BlobStore {
 				if (toBeDeletedBlobs.size() > DeleteObjectsRequest.DELETE_OBJECTS_ONETIME_LIMIT / 2
 						|| !blobNameIterator.hasNext()) {
 					deleteRequest.setKeys(toBeDeletedBlobs);
-					this.client.deleteObjects(deleteRequest);
+					this.ossStorageService.deleteObjects(deleteRequest);
 					toBeDeletedBlobs.clear();
 				}
 			}
@@ -63,11 +63,11 @@ public class OssBlobStore extends AbstractComponent implements BlobStore {
 
 	@Override
 	public void close() throws IOException {
-		client.shutdown();
+		ossStorageService.shutdown();
 	}
 
 	boolean doesBucketExist(String bucketName) {
-		return this.client.doesBucketExist(bucketName);
+		return this.ossStorageService.doesBucketExist(bucketName);
 	}
 
 	Map<String, BlobMetaData> listBlobsByPrefix(String keyPath, String prefix) throws IOException {
@@ -77,7 +77,7 @@ public class OssBlobStore extends AbstractComponent implements BlobStore {
 			String nextMarker = null;
 			ObjectListing blobs;
 			do {
-				blobs = this.client
+				blobs = this.ossStorageService
 						.listObjects(new ListObjectsRequest(bucket).withPrefix(actualPrefix).withMarker(nextMarker));
 				for (OSSObjectSummary summary : blobs.getObjectSummaries()) {
 					String blobName = summary.getKey().substring(keyPath.length());
@@ -90,11 +90,11 @@ public class OssBlobStore extends AbstractComponent implements BlobStore {
 	}
 
 	boolean blobExists(String blobName) throws OSSException, ClientException, IOException {
-		return SocketAccess.doPrivilegedException(() -> this.client.doesObjectExist(bucket, blobName));
+		return SocketAccess.doPrivilegedException(() -> this.ossStorageService.doesObjectExist(bucket, blobName));
 	}
 
 	InputStream readBlob(String blobName) throws OSSException, ClientException, IOException {
-		return SocketAccess.doPrivilegedException(() -> this.client.getObject(bucket, blobName).getObjectContent());
+		return SocketAccess.doPrivilegedException(() -> this.ossStorageService.getObject(bucket, blobName).getObjectContent());
 	}
 
 	void writeBlob(String blobName, InputStream inputStream, long blobSize)
@@ -102,19 +102,19 @@ public class OssBlobStore extends AbstractComponent implements BlobStore {
 
 		ObjectMetadata meta = new ObjectMetadata();
 		meta.setContentLength(blobSize);
-		SocketAccess.doPrivilegedException(() -> this.client.putObject(bucket, blobName, inputStream, meta));
+		SocketAccess.doPrivilegedException(() -> this.ossStorageService.putObject(bucket, blobName, inputStream, meta));
 	}
 
 	void deleteBlob(String blobName) throws OSSException, ClientException {
 		SocketAccess.doPrivilegedVoidException(() -> {
-			this.client.deleteObject(bucket, blobName);
+			this.ossStorageService.deleteObject(bucket, blobName);
 		});
 	}
 
 	public void move(String sourceBlobName, String targetBlobName) throws OSSException, ClientException, IOException {
 		SocketAccess.doPrivilegedException(() -> {
-			this.client.copyObject(bucket, sourceBlobName, bucket, targetBlobName);
-			this.client.deleteObject(bucket, sourceBlobName);
+			this.ossStorageService.copyObject(bucket, sourceBlobName, bucket, targetBlobName);
+			this.ossStorageService.deleteObject(bucket, sourceBlobName);
 			return null;
 		});
 	}
