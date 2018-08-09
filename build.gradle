@@ -9,6 +9,7 @@ defaultTasks 'clean', 'build', 'libs', 'copyResources', 'zip'
 
 configurations { 
     localDeps
+    localRuntimes
 }
 
 dependencies {
@@ -28,15 +29,17 @@ dependencies {
      
     localDeps 'org.apache.commons:commons-lang3:3.7'
     
+    localRuntimes 'javax.xml.bind:jaxb-api:2.3.0'
+    
+    localRuntimes 'com.sun.xml.bind:jaxb-impl:2.3.0'
+    
+    localRuntimes 'com.sun.xml.bind:jaxb-core:2.3.0'
+    
+    localRuntimes 'javax.activation:activation:1.1.1'
+    
     compile configurations.localDeps
     
-    localDeps 'javax.xml.bind:jaxb-api:2.3.0'
-    
-    localDeps 'com.sun.xml.bind:jaxb-impl:2.3.0'
-    
-    localDeps 'com.sun.xml.bind:jaxb-core:2.3.0'
-    
-    localDeps 'javax.activation:activation:1.1.1'
+    runtime configurations.localRuntimes
 }
 
 repositories {
@@ -53,7 +56,7 @@ jar {
 
 task libs(type: Copy) {
     from configurations.localDeps
-    // from configurations.runtime  
+    from configurations.localRuntimes
     into "$buildDir/libs"
 }
 
