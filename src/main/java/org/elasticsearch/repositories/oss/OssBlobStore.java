@@ -42,7 +42,7 @@ public class OssBlobStore extends AbstractComponent implements BlobStore {
 
 	@Override
 	public void delete(BlobPath blobPath) throws IOException {
-		SocketAccess.doPrivilegedException(() -> {
+		SocketAccess.doPrivilegedVoidException(() -> {
 			DeleteObjectsRequest deleteRequest = new DeleteObjectsRequest(bucket);
 			Map<String, BlobMetaData> blobs = listBlobsByPrefix(blobPath.buildAsString(), null);
 			List<String> toBeDeletedBlobs = new ArrayList<>();
@@ -57,7 +57,6 @@ public class OssBlobStore extends AbstractComponent implements BlobStore {
 					toBeDeletedBlobs.clear();
 				}
 			}
-			return null;
 		});
 	}
 
