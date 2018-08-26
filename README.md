@@ -52,8 +52,7 @@ PUT http://<Your elasticsearch endpoint>/_snapshot/my_backup
 
 [modules-snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/modules-snapshots.html)
 
-## 特别鸣谢
-该项目的大部分代码来自
+## THANKS
 - [zhichen/elasticsearch-repository-oss](https://github.com/zhichen/elasticsearch-repository-oss)
 - [项目结构参照](https://github.com/elastic/elasticsearch/tree/master/plugins/repository-azure)
 - [AccessControl代码来自](https://github.com/elastic/elasticsearch/blob/master/plugins/repository-azure/src/main/java/org/elasticsearch/repositories/azure/SocketAccess.java)
