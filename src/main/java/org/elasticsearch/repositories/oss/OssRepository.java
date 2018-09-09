@@ -17,12 +17,19 @@ public class OssRepository extends BlobStoreRepository {
 	private final BlobPath basePath;
 	private final boolean compress;
 	private final ByteSizeValue chunkSize;
-
+	private final OssStorageService storageService;
+	private final Environment environment;
+	
+	private String bucket;
+	
 	public OssRepository(RepositoryMetaData metadata, Environment env, NamedXContentRegistry namedXContentRegistry,
 			OssStorageService ossStorageService) {
 		super(metadata, env.settings(), namedXContentRegistry);
 		
-		String bucket = OssStorageSettings.getSetting(OssStorageSettings.BUCKET, metadata);
+		this.storageService = ossStorageService;
+		this.environment = env;
+		
+		bucket = OssStorageSettings.getSetting(OssStorageSettings.BUCKET, metadata);
 		String basePath = OssStorageSettings.getSetting(OssStorageSettings.BASE_PATH, metadata, true);
 		
 		if (Strings.hasLength(basePath)) {
@@ -47,7 +54,8 @@ public class OssRepository extends BlobStoreRepository {
 	
 	@Override
     protected OssBlobStore createBlobStore() {
-        return blobStore;
+		final OssBlobStore blobStore = new OssBlobStore(environment.settings(), bucket, storageService);
+	    return blobStore;
     }
 
 	@Override

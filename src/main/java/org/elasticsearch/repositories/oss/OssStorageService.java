@@ -116,7 +116,7 @@ public class OssStorageService extends AbstractComponent {
 			throws OSSException, ClientException {
 		return SocketAccess.doPrivilegedException(() -> {
 			logger.info("try to create: " + bucketName + ":" + key);
-			// TODOadd checking
+			// TODO: add checking
 			PutObjectResult result = this.client.putObject(bucketName, key, input, metadata);
 			logger.info(" ---> " + result);
 			return result;
