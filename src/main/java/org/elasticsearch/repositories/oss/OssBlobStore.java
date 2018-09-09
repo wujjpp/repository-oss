@@ -96,12 +96,12 @@ public class OssBlobStore extends AbstractComponent implements BlobStore {
 		return SocketAccess.doPrivilegedException(() -> this.ossStorageService.getObject(bucket, blobName).getObjectContent());
 	}
 
-	void writeBlob(String blobName, InputStream inputStream, long blobSize)
+	void writeBlob(String blobName, InputStream inputStream, long blobSize, boolean failIfAlreadyExists)
 			throws OSSException, ClientException, IOException {
 
 		ObjectMetadata meta = new ObjectMetadata();
 		meta.setContentLength(blobSize);
-		SocketAccess.doPrivilegedException(() -> this.ossStorageService.putObject(bucket, blobName, inputStream, meta));
+		SocketAccess.doPrivilegedException(() -> this.ossStorageService.putObject(bucket, blobName, inputStream, meta, failIfAlreadyExists));
 	}
 
 	void deleteBlob(String blobName) throws OSSException, ClientException {

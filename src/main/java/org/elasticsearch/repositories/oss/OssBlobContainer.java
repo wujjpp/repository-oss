@@ -50,14 +50,14 @@ public class OssBlobContainer extends AbstractBlobContainer {
 
 
     @Override 
-    public void writeBlob(String blobName, InputStream inputStream, long blobSize)
+    public void writeBlob(String blobName, InputStream inputStream, long blobSize, boolean failIfAlreadyExists)
         throws IOException {
         if (blobExists(blobName)) {
             throw new FileAlreadyExistsException(
                 "blob [" + blobName + "] already exists, cannot overwrite");
         }
         logger.trace("writeBlob({}, stream, {})", blobName, blobSize);
-        blobStore.writeBlob(buildKey(blobName), inputStream, blobSize);
+        blobStore.writeBlob(buildKey(blobName), inputStream, blobSize, failIfAlreadyExists);
     }
 
 
@@ -96,7 +96,6 @@ public class OssBlobContainer extends AbstractBlobContainer {
         }
     }
 
-    @Override 
     public void move(String sourceBlobName, String targetBlobName) throws IOException {
         logger.trace("move({}, {})", sourceBlobName, targetBlobName);
         if (!blobExists(sourceBlobName)) {

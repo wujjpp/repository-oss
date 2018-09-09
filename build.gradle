@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
 }
 
-version '6.3.2'
+version '6.4.0'
 
 defaultTasks 'clean', 'build', 'libs', 'copyResources', 'zip'
 

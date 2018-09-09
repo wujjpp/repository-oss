@@ -112,10 +112,11 @@ public class OssStorageService extends AbstractComponent {
 		});
 	}
 
-	public PutObjectResult putObject(String bucketName, String key, InputStream input, ObjectMetadata metadata)
+	public PutObjectResult putObject(String bucketName, String key, InputStream input, ObjectMetadata metadata, boolean failIfAlreadyExists)
 			throws OSSException, ClientException {
 		return SocketAccess.doPrivilegedException(() -> {
 			logger.info("try to create: " + bucketName + ":" + key);
+			// TODOadd checking
 			PutObjectResult result = this.client.putObject(bucketName, key, input, metadata);
 			logger.info(" ---> " + result);
 			return result;
