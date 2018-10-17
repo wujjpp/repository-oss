@@ -20,7 +20,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10/"/>
-	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/6.4.1/b679351e248c43b6a8842dfaa7e9b5aaaf663905/elasticsearch-6.4.1-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/6.4.1/f1da321d66d2e00888a9dd4cbba94113b8404b/elasticsearch-6.4.1.jar">
+	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/6.4.2/a2925601050a8034a34d2fd308b25c8b8d35a117/elasticsearch-6.4.2-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/6.4.2/29a4003b7e28ae8d8896041e2e16caa7c4272ee3/elasticsearch-6.4.2.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
@@ -55,22 +55,22 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-x-content/6.4.1/1f457af952ff10b524989819bae108b1d213f26d/elasticsearch-x-content-6.4.1-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-x-content/6.4.1/a8dc81619b48c8fc6f065af14706be6a80ee676f/elasticsearch-x-content-6.4.1.jar">
+	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-x-content/6.4.2/f098fae871b34e597da0b97fee29f6ee6d6c6642/elasticsearch-x-content-6.4.2-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-x-content/6.4.2/ea95ce6b5e8de7673b9c57426b898cbf44165edb/elasticsearch-x-content-6.4.2.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-cli/6.4.1/bdacee7a1411361802ab5be1055751eb94ce400f/elasticsearch-cli-6.4.1-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-cli/6.4.1/ad6bda57b44687bbda48303f3ada1706ee79b285/elasticsearch-cli-6.4.1.jar">
+	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-cli/6.4.2/bd39beabd0b05b14870546089325fd5d1078540a/elasticsearch-cli-6.4.2-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-cli/6.4.2/922f092b2c3a59d70222442e893d040e91c3e3c2/elasticsearch-cli-6.4.2.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-core/6.4.1/da50a34f1b6623894e38c7a67530a2f09583d322/elasticsearch-core-6.4.1-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-core/6.4.1/e22486ae82a2b93a1c4ab2f054ff2b5ccb16863b/elasticsearch-core-6.4.1.jar">
+	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-core/6.4.2/1180300841b5c0072f291a7cc45f7453b8d0e5eb/elasticsearch-core-6.4.2-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-core/6.4.2/ffb8bc850e67c116f6dc59e5c0c292f21151bec3/elasticsearch-core-6.4.2.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-secure-sm/6.4.1/888eedd577c25bf88703113cbe78c2b8bd87f8c1/elasticsearch-secure-sm-6.4.1-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-secure-sm/6.4.1/b2d8bd6ac704161cf28edf4a9110e0ebe966a14a/elasticsearch-secure-sm-6.4.1.jar">
+	<classpathentry sourcepath="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-secure-sm/6.4.2/f595ce88c958a65bbc16fd4a2e06d27295f20efb/elasticsearch-secure-sm-6.4.2-sources.jar" kind="lib" path="C:/Users/JP/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-secure-sm/6.4.2/75a5bd8a56e4b69a398f30e5ec34e4615c57bbb5/elasticsearch-secure-sm-6.4.2.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
